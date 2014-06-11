@@ -1,5 +1,17 @@
 App = Ember.Application.create({});
 
+var titles = [{
+  id: '1',
+  title: "Rails is Omakase",
+  author: { name: "d2h" },
+  date: new Date('12-27-2012'),
+}, {
+  id: '2',
+  title: "The Parley Letter",
+  author: { name: "d2h" },
+  date: new Date('12-24-2012'),
+}];
+
 var posts = [{
   id: '1',
   title: "Rails is Omakase",
@@ -20,6 +32,9 @@ App.Router.map(function() {
   this.resource('about');
   this.resource('posts', function() {
     this.resource('post', { path: ':post_id' });
+  });
+  this.resource('titles', function() {
+    this.resource('title', { path: ':title_id' });
   });
 });
 
